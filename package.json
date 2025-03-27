@@ -1,0 +1,25 @@
+{
+  "name": "trw-wrapper",
+  "version": "1.0.0",
+  "description": "A Node.js wrapper for the The Real Woozie API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "api",
+    "wrapper",
+    "trw",
+    "bypass"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
