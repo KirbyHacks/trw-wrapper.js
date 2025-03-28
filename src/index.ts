@@ -21,7 +21,7 @@ interface ApiStatusResponse {
   status: string;
 }
 
-export class TRW {
+class TRW {
   private client: AxiosInstance;
 
   constructor(apiKey?: string) {
@@ -31,10 +31,6 @@ export class TRW {
     });
   }
 
-  /**
-   * Quick bypass route
-   * @param url The URL to bypass
-   */
   async bypass(url: string): Promise<BypassResponse> {
     const response = await this.client.get('/api/bypass', {
       params: { url }
@@ -42,10 +38,6 @@ export class TRW {
     return response.data;
   }
 
-  /**
-   * Long-lived bypass route
-   * @param url The URL to bypass
-   */
   async bypassV2(url: string): Promise<LongBypassResponse> {
     const response = await this.client.get('/api/v2/bypass', {
       params: { url }
@@ -53,10 +45,6 @@ export class TRW {
     return response.data;
   }
 
-  /**
-   * Check the status of a long-lived bypass
-   * @param id The thread ID to check
-   */
   async threadCheck(id: string): Promise<ThreadCheckResponse> {
     const response = await this.client.get('/api/v2/threadcheck', {
       params: { id }
@@ -64,18 +52,11 @@ export class TRW {
     return response.data;
   }
 
-  /**
-   * Check API status
-   */
   async status(): Promise<ApiStatusResponse> {
     const response = await this.client.get('/api/status');
     return response.data;
   }
 
-  /**
-   * Free bypass route (no API key required)
-   * @param url The URL to bypass
-   */
   async freeBypass(url: string): Promise<BypassResponse> {
     const response = await this.client.get('/api/free/bypass', {
       params: { url }
@@ -84,4 +65,4 @@ export class TRW {
   }
 }
 
-export default TRW; 
+module.exports = TRW;
